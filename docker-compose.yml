@@ -34,10 +34,6 @@ services:
       ELASTICSEARCH_HOSTS: '["http://es01:9200","http://es02:9200","http://es03:9200"]'
     networks:
       - elastic
-  zookeeper:
-    image: wurstmeister/zookeeper
-    ports:
-      - "2181:2181"
   kafka:
     image: wurstmeister/kafka
     build: .
@@ -86,6 +82,7 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
     expose:
       - 8080
+
   grafana:
     image: grafana/grafana:latest
     container_name: monitoring_grafana
