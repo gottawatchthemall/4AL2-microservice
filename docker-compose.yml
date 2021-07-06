@@ -5,7 +5,7 @@ services:
     build:
       context: .
     container_name: server
-    ports:
+    ports:test
       - 8000:8000
 
   pm-es:
