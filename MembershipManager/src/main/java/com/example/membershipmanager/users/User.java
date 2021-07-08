@@ -14,6 +14,6 @@ public class User {
     private String job;
     private Long averageDailyRate;
     private String address;
-    private List<String> skills;
+    private List<Skill> skills;
     private Role role;
 }

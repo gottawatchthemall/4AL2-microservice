@@ -7,26 +7,26 @@ services:
       - 2181:2181
     container_name: zookeeper
 
-  membership-manager:
-    image: membership-manager
-    build:
-      context: ./MembershipManager
-    ports:
-    - 9000:9000
-
-  education-manager:
-    image: membership-manager
-    build:
-      context: ./EducationManager
-    ports:
-      - 9001:9001
-
   market-manager:
     image: market-manager
     build:
       context: ./MarketManager
     ports:
-    - 8555:8555
+      - 8555:8555
+
+  education-manager:
+    image: education-manager
+    build:
+      context: ./EducationManager
+    ports:
+      - 8556:8556
+
+  membership-manager:
+    image: membership-manager
+    build:
+      context: ./MembershipManager
+    ports:
+    - 8557:8557
 
   kafka1:
     image: wurstmeister/kafka

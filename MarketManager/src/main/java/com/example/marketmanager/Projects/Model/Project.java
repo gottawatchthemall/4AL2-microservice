@@ -3,6 +3,8 @@ package com.example.marketmanager.Projects.Model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Builder
 @Data
 public class Project {
@@ -13,5 +15,6 @@ public class Project {
     boolean open;
     int userId;
     int tradesmanAffected;
+    List<Skill> skills;
 
 }
