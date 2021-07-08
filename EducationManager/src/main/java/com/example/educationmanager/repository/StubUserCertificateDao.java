@@ -16,6 +16,7 @@ public class StubUserCertificateDao implements UserCertificateDao {
 
     @Override
     public UserCertificate saveOne(UserCertificate userCertificate) {
+        userCertificate.setId((long) userCertificatesList.size());
         userCertificatesList.add(userCertificate);
         return userCertificate;
     }

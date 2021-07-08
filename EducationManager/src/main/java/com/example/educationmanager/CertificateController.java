@@ -18,7 +18,6 @@ import java.util.List;
 @RequestMapping("/api/certificate")
 public class CertificateController {
     private final CertificateDao certificateDao;
-    private final UserCertificateDao userCertificateDao;
     @PostMapping
     public ResponseEntity<Certificate> save(
             @RequestBody CertificateRequest request
