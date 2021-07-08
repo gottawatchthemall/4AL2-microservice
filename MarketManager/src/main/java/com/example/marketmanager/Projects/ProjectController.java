@@ -2,11 +2,13 @@ package com.example.marketmanager.Projects;
 
 
 import com.example.marketmanager.Projects.Model.Project;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/projects")
-@AllArgsConstructor
+@RequiredArgsConstructor
+@Controller
+@RequestMapping("/api/projects")
 public class ProjectController {
 
     public final ProjectService projectService;
