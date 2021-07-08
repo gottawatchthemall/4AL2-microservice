@@ -1,7 +1,6 @@
 package com.example.educationmanager;
 
 import com.example.educationmanager.model.Certificate;
-import com.example.educationmanager.model.UserCertificate;
 import com.example.educationmanager.repository.CertificateDao;
 import com.example.educationmanager.repository.UserCertificateDao;
 import com.example.educationmanager.request.CertificateRequest;
@@ -47,10 +46,4 @@ public class CertificateController {
         return ResponseEntity.ok(maybeCertificate.get());
     }
 
-    @PostMapping()
-    public ResponseEntity<URI> createUserCertificate(
-            @RequestBody UserCertificateRequest request
-    ) {
-        return null;
-    }
 }
