@@ -25,7 +25,7 @@ public class UserCertificateController {
         var userCertificate = userCertificateDao.saveOne(
                 new UserCertificate().setUserId(request.getUserId()).setCertificateId(request.getCertificateId())
         );
-        
+
         var uri = ServletUriComponentsBuilder
                 .fromCurrentRequestUri()
                 .buildAndExpand(userCertificate.getId())
