@@ -16,6 +16,13 @@
     <properties>
         <java.version>11</java.version>
     </properties>
+
+    <modules>
+        <module>MarketManager</module>
+        <module>EducationManager</module>
+        <module>MembershipManager</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,6 +59,8 @@
             <version>3.0.0</version>
         </dependency>
     </dependencies>
+
+
 
     <build>
         <defaultGoal>install</defaultGoal>
