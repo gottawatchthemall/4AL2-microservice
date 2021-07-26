@@ -1,2 +1,15 @@
 server:
   port: 8556
+
+spring:
+  kafka:
+    consumer:
+      bootstarp-servers: localhost:9093
+      group-id: "message"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstarp-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

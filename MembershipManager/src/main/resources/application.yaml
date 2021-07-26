@@ -1,2 +1,15 @@
 server:
   port: 8557
+
+spring:
+  kafka:
+    consumer:
+      bootstarp-servers: ${CONSUMER_URL}
+      group-id: "message"
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstarp-servers: ${PRODUCER_URL}
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
