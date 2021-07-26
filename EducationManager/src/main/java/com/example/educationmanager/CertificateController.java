@@ -12,17 +12,21 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.concurrent.Future;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/certificate")
 public class CertificateController {
+    private final KafkaProducer producer;
     private final CertificateDao certificateDao;
+
     @PostMapping
     public ResponseEntity<Certificate> save(
             @RequestBody CertificateRequest request
     ) {
         var savedCertificate = certificateDao.saveOne(new Certificate().setName(request.getName()));
+        this.producer.writeMessage("toto");
 
         var certificateUri = ServletUriComponentsBuilder
                 .fromCurrentRequestUri()

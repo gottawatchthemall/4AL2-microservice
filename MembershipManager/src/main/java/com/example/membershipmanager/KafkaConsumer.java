@@ -1,4 +1,4 @@
-package fr.esgi.gwto.microservice;
+package com.example.membershipmanager;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
