@@ -2,17 +2,13 @@ package com.example.educationmanager;
 
 import com.example.educationmanager.model.Certificate;
 import com.example.educationmanager.repository.CertificateDao;
-import com.example.educationmanager.repository.UserCertificateDao;
 import com.example.educationmanager.request.CertificateRequest;
-import com.example.educationmanager.request.UserCertificateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
-import java.util.concurrent.Future;
 
 @RestController
 @RequiredArgsConstructor
