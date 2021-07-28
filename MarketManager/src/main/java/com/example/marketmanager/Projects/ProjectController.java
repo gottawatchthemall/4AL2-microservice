@@ -24,12 +24,4 @@ public class ProjectController {
         projectService.closeProject(id);
         //TODO FREE tradesman
     }
-
-    @PutMapping("/{projectId}/tradesman/{tradesmanId}")
-    public void affectTradesmanToProject(@PathVariable int projectId, @PathVariable int tradesmanId) {
-        projectService.affectTradesmanToProject(projectId, tradesmanId);
-
-    }
-
-
 }

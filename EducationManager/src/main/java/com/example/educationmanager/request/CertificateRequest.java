@@ -5,7 +5,8 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class
-CertificateRequest {
+
+public class CertificateRequest {
     private String name;
+    private Long userId;
 }

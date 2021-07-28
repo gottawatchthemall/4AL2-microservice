@@ -1,6 +1,8 @@
 package com.example.marketmanager.Projects;
 
 import com.example.marketmanager.Projects.Model.Project;
+import com.example.marketmanager.Projects.broker.model.TradesmanAffectedToProject;
+import com.example.marketmanager.Projects.broker.model.WorkerParticipateToProject;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -10,15 +12,14 @@ import java.util.List;
 public class ProjectFakeRepository implements ProjectRepository {
 
     List<Project> projects = Collections.emptyList();
-    int idIndex = 0;
+    Long idIndex = 0L;
 
     @Override
     public int createProject(Project project) {
         project.setId(idIndex);
         idIndex++;
         projects.add(project);
-        return project.getId();
-
+        return project.getId().intValue();
     }
 
     @Override
@@ -30,10 +31,25 @@ public class ProjectFakeRepository implements ProjectRepository {
     }
 
     @Override
-    public void affectTradesmanToProject(int projectId, int tradesmanId) {
-        if (projectId > idIndex) {
+    public void affectWorkerToProject(WorkerParticipateToProject workerParticipateToProject) {
+
+        if (workerParticipateToProject.getProjectId() > idIndex) {
             throw new RuntimeException("Not found");
         }
-        projects.get(projectId).setTradesmanAffected(tradesmanId);
+
+        projects
+            .get(workerParticipateToProject.getProjectId().intValue())
+            .getWorkersId().add(workerParticipateToProject.getUserId());
+    }
+
+    @Override
+    public void affectTradesmanToProject(TradesmanAffectedToProject tradesmanAffectedToProject) {
+        if (tradesmanAffectedToProject.getProjectId() > idIndex) {
+            throw new RuntimeException("Not found");
+        }
+
+        projects
+            .get(tradesmanAffectedToProject.getProjectId().intValue())
+            .setTradesmanAffected(tradesmanAffectedToProject.getUserId());
     }
 }

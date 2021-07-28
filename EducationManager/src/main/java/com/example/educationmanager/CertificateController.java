@@ -1,10 +1,12 @@
 package com.example.educationmanager;
 
+import com.example.educationmanager.broker.model.UserCertificate;
 import com.example.educationmanager.model.Certificate;
 import com.example.educationmanager.repository.CertificateDao;
 import com.example.educationmanager.repository.UserCertificateDao;
 import com.example.educationmanager.request.CertificateRequest;
 import com.example.educationmanager.request.UserCertificateRequest;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +26,11 @@ public class CertificateController {
     @PostMapping
     public ResponseEntity<Certificate> save(
             @RequestBody CertificateRequest request
-    ) {
+    ) throws JsonProcessingException {
         var savedCertificate = certificateDao.saveOne(new Certificate().setName(request.getName()));
-        this.producer.writeMessage("toto");
+        var userCertificate = new UserCertificate(request.getUserId(), request.getName());
+
+        this.producer.saveUserCertificate(userCertificate);
 
         var certificateUri = ServletUriComponentsBuilder
                 .fromCurrentRequestUri()
