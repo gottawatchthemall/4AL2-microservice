@@ -19,8 +19,6 @@ public class DisputeController {
     @PostMapping
     public ResponseEntity<String> save(
     ) {
-        this.producer.writeMessage("toto");
-
         return ResponseEntity.ok("ok");
     }
 }
